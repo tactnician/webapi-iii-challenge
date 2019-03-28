@@ -8,7 +8,7 @@ const postsRouter = require('./posts/post-router');
 const server = express();
 
 //middlewares 
-server.use(express.json);
+server.use(express.json());
 server.use(helmet());
 server.use(morgan('dev'));
 // server.use();

@@ -5,7 +5,14 @@ const Posts = require('./postDb');
 // const postMiddleware = require('./post-middleware');
 
 //get()
-// router.get();
+router.get('/', async (req, res) => {
+    try {
+        const posts = await Posts.get(req.query);
+        res.status(200).json({posts})
+    } catch (error) {
+        res.status(500).json({message: `error gettin posts: ${error}`})
+    }
+});
 
 //getById()
 router.get('/:id', async (req, res) => {
